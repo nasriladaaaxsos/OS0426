@@ -1,11 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> View Upcoming Appointments</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>View Upcoming Appointments</title>
 </head>
-<body>
+
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 py-5 px-6 shadow-sm">
+        <h1 class="text-center text-2xl font-bold tracking-tight text-indigo-900">View Upcoming Appointments</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-5xl w-full mx-auto p-6 md:p-8">
     
+        <!-- Table Title Description -->
+        <div class="mb-4">
+            <h2 class="text-xl font-semibold text-gray-800">Your Upcoming Appointments</h2>
+        </div>
+    
+        <!-- Responsive Card Wrapper -->
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <!-- Table Header -->
+                    <thead class="bg-gray-50 border-b border-gray-200">
+                        <tr>
+                            <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-500 w-16">ID</th>
+                            <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Description
+                            </th>
+                            <th class="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-gray-500 w-48">Due Date
+                            </th>
+                        </tr>
+                    </thead>
+    
+                    <!-- Table Body Data -->
+                    <tbody class="divide-y divide-gray-200">
+                        {% for appointment in appointments %}
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ appointment.id }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-700">{{ appointment.Appointment_Desc }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-600">{{ appointment.Appointment_Date|date:"Y-m-d" }}</td>
+                        </tr>
+                        {% endfor %}
+                        6 py-4 text-sm text-gray-600">2026-06-20</td>
+                        </tr>
+                    </tbody>
+    
+                    <!-- Table Footer Summary -->
+                    <tfoot class="bg-gray-50 border-t border-gray-200">
+                        <tr>
+                            <td colspan="2" class="px-6 py-4 text-sm font-semibold text-gray-800 text-right">Total Items:
+                            </td>
+                            <td class="px-6 py-4 text-sm font-bold text-indigo-600">{{appointments.count}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-4 text-center text-sm text-gray-500">
+        <p>&copy; 2026 Medical Clinic. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

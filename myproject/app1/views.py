@@ -22,8 +22,13 @@ def edit_appointment(request):
 def delete_appointment(request):
     return redirect('showall')
 
+#Ramez----viewing upcomming appointments
 def view_upcoming_appointment(request):
-    return render(request, 'viewupappointments.html')
+    # Get the upcoming appointments using the model function
+    context = {
+        'appointments': models.upcomming_appointment()
+    }
+    return render(request, 'viewupappointments.html', context)
 
 def appointment_detail(request, id):
     return render(request, 'detail.html')

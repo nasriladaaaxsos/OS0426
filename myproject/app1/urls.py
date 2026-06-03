@@ -7,6 +7,6 @@ urlpatterns = [
     path('edit', views.edit_appointment),
     path('viewall', views.view_all_appointment, name='showall'),
     path('delete', views.delete_appointment),
-    path('viewupcomming', views.view_upcoming_appointment),
+    path('viewupcomming', views.view_upcoming_appointment),#Ramez----viewing upcomming appointments
     path('details/<int:id>', views.appointment_detail),
     ]
