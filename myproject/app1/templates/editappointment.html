@@ -1,11 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit</title>
+    <link rel="stylesheet" href="{% static 'editA.css' %}">
 </head>
 <body>
-    
+    <h1> Edit Appointment</h1>
+    <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
+    <form action="edit" method="post">
+        {% csrf_token %}
+        <label for="desc"> Desc:- {{ desc }} </label>
+        <input type="text" name="desc">
+        <label for="date">Date Time:- {{ date }} </label>
+        <input type="text" name="date">
+        <a href="viewall">Back</a>
+        <button type="submit">Edit</button>
+    </form>
+
 </body>
 </html>

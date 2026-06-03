@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
-from . import models
-
+from .models import *
 #Get
 #Landing page for login
 def index(request):
@@ -16,6 +15,9 @@ def create_appointment(request):
 
 #Get
 def edit_appointment(request):
+    if request.method == "POST":
+        edit_data(request.POST, request.POST['appointment_id'])
+        return redirect('/edit')
     return render(request, 'editappointment.html')
 
 #Post request
@@ -25,11 +27,6 @@ def delete_appointment(request):
 def view_upcoming_appointment(request):
     return render(request, 'viewupappointments.html')
 
-# Show Appointment Details 
 def appointment_detail(request, id):
-    appointment = Appointment.objects.get(id = id)
-    context = {
-        "appointment" : appointment
-    }
-    return render(request, 'detail.html',context)
+    return render(request, 'detail.html')
 
