@@ -22,7 +22,7 @@ git checkout -b feature/<your-feature-name>
 ### 3. Implement Your Assigned Part ONLY
 - Work only on the section assigned to you.
 - Follow the provided wireframes carefully.
-- Use the class names, IDs, and attributes specified in the exercise requirements.
+- Use the class names and attributes specified in the exercise requirements.
 
 ### 4. Commit Your Changes
 Commit your work with clear and meaningful commit messages:
