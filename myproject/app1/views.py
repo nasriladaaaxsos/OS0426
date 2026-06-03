@@ -25,6 +25,11 @@ def delete_appointment(request):
 def view_upcoming_appointment(request):
     return render(request, 'viewupappointments.html')
 
+# Show Appointment Details 
 def appointment_detail(request, id):
-    return render(request, 'detail.html')
+    appointment = Appointment.objects.get(id = id)
+    context = {
+        "appointment" : appointment
+    }
+    return render(request, 'detail.html',context)
 
