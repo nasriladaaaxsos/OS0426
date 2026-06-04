@@ -6,6 +6,14 @@
     <title>Create</title>
 </head>
 <body>
-    
+    <form action="/create" method="post">
+        {% csrf_token %}
+        <label for="description">description :</label>
+        <textarea name="Appointment_Desc" id="description" placeholder="description...."></textarea>
+        <label for="Appointment_Date">Due-time :</label>
+        <input type="date" name="Appointment_Date" id="Appointment_Date">
+        <a href="/">Back</a>
+        <input type="submit">
+    </form>
 </body>
 </html>
